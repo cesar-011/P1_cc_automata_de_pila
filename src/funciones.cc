@@ -1,5 +1,9 @@
 #include "../include/funciones.h"
 
+/// @brief Lee la configuración desde un fichero de entrada e inicializa el autómata y su pila
+/// @param fichero_entrada Flujo de entrada del archivo de configuración
+/// @param automata Referencia al objeto APF donde se estructurará el autómata
+/// @param pila_automata Referencia a la estructura de pila a configurar
 void ConstruirAutomataDePila(std::ifstream& fichero_entrada, APF& automata, PilaAutomata& pila_automata) {
   std::string linea;
   int iterator = 0;
@@ -99,6 +103,12 @@ void ConstruirAutomataDePila(std::ifstream& fichero_entrada, APF& automata, Pila
     }
 }
 
+/// @brief Analiza los argumentos pasados por línea de comandos
+/// @param argc Número de argumentos pasados al programa
+/// @param argv Vector de cadenas con los argumentos de la línea de comandos
+/// @param nombre_fichero Referencia donde se almacenará el nombre del archivo de configuración
+/// @param traza_activada Referencia donde se almacenará si el modo traza está activado
+/// @return true si los argumentos son válidos, false en caso contrario
 bool ProcesarArgumentos(int argc, char* argv[], std::string& nombre_fichero, bool& traza_activada) {
   for (int i = 1; i < argc; ++i) {
     std::string arg = argv[i];
@@ -127,6 +137,10 @@ bool ProcesarArgumentos(int argc, char* argv[], std::string& nombre_fichero, boo
   return true;
 }
 
+/// @brief Gestiona el bucle interactivo de la consola para leer y evaluar cadenas
+/// @param automata Referencia al autómata de pila a utilizar
+/// @param pila_automata Referencia al estado inicial de la pila del autómata
+/// @param traza_activada Indica si se debe mostrar la traza durante la evaluación
 void EjecutarAutomata(APF& automata, PilaAutomata& pila_automata, bool traza_activada) {
   std::string cadena;
   std::cout << "\nAutómata listo. Introduce cadenas para evaluar (escribe 'salir' para terminar):\n";

@@ -26,10 +26,8 @@ class APF {
                          const std::string& estado_destino, 
                          const std::string& sim_pila_escribir);
    bool ComprobarValidez() const;
-
    bool EvaluarCadena(const std::string& cadena, PilaAutomata pila_inicial, bool mostrar_traza = false) const;
    bool EvaluarRama(const std::string& cadena_restante, const Estado& estado_inicial, PilaAutomata pila_automata, bool mostrar_traza) const;
-
 
   private:
    //Lo que leo: Pair(simbolo_cadena, simbolo_pila)
@@ -41,13 +39,13 @@ class APF {
    //La estructura final
    using FuncionTransicion = std::map<std::string, MapaDestinos>;
 
-   std::set<Estado> estados_;
-   std::set<std::string> alfabeto_;
-   std::set<std::string> alfabeto_pila_;
-   Estado estado_inicial_;
-   std::string simbolo_inicial_pila_;
-   std::set<Estado> estados_finales_;
-   FuncionTransicion funcion_transicion_;
+   std::set<Estado> estados_; // Conjunto de estados del automata
+   std::set<std::string> alfabeto_; // Alfabeto
+   std::set<std::string> alfabeto_pila_; // Afabeto de la pila
+   Estado estado_inicial_; // Estado inicial del automata
+   std::string simbolo_inicial_pila_;// Simbolo inicial de la pila del automata
+   std::set<Estado> estados_finales_; // Conjunto de estados finales del automata
+   FuncionTransicion funcion_transicion_; // Funcion de transicion del automata
 };
 
 #endif //APF_H_
