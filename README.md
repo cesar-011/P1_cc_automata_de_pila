@@ -1,6 +1,6 @@
 # Simulador de Autómata de Pila (APF)
 
-Este proyecto implementa un simulador de **Autómatas de Pila (Pushdown Automata)** en C++. Es capaz de procesar autómatas deterministas y no deterministas, soportando transiciones vacías (épsilon/lambda) y ofreciendo un modo "traza" para visualizar paso a paso el proceso de evaluación de una cadena.
+Este proyecto implementa un simulador de **Autómatas de Pila por estado final (Pushdown Automata)** en C++. Es capaz de procesar autómatas deterministas y no deterministas, soportando transiciones vacías (épsilon/lambda) y ofreciendo un modo "traza" para visualizar paso a paso el proceso de evaluación de una cadena. 
 
 ## Compilación y Ejecución
 
