@@ -1,0 +1,31 @@
+# Automata por estados finales 
+# epsilon esta representado por un .
+# Reconoce el lenguaje L = { w | N_a(w) = N_b(w) } (Mismo numero de a y b en cualquier orden)
+# La pila funciona como un "medidor de exceso" de una letra sobre otra.
+
+q0 qf
+a b
+Z A B
+q0
+Z
+qf
+
+# Si el contador esta a cero (Z en la cima), empezamos a contar la letra que llegue
+q0 a Z q0 AZ
+q0 b Z q0 BZ
+
+# Si ya tenemos exceso de 'a' (A en la cima)
+# - Si llega otra 'a', aumentamos el exceso (metemos otra A)
+q0 a A q0 AA
+# - Si llega una 'b', cancelamos una 'a' (sacamos la A)
+q0 b A q0 .
+
+# Si ya tenemos exceso de 'b' (B en la cima)
+# - Si llega otra 'b', aumentamos el exceso (metemos otra B)
+q0 b B q0 BB
+# - Si llega una 'a', cancelamos una 'b' (sacamos la B)
+q0 a B q0 .
+
+# Transicion lambda de aceptacion:
+# Si terminamos de leer la cadena y el contador esta a cero (Z en la cima), aceptamos.
+q0 . Z qf Z

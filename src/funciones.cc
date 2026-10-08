@@ -10,7 +10,7 @@ void ConstruirAutomataDePila(std::ifstream& fichero_entrada, APF& automata, Pila
   if (fichero_entrada.is_open()) {
     while (std::getline(fichero_entrada, linea)) {
       // Ignorar comentarios
-      if (linea[0] == '#') {
+      if (linea.empty() || linea[0] == '#') {
         continue;
       }
       switch (iterator) {
